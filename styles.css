@@ -1,0 +1,149 @@
+/* Import Pangolin font */
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* White mask to hide content outside border */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: -1;  /* Put the white mask behind everything */
+    pointer-events: none;
+    /* Create a "window" that matches the border shape */
+    mask: path('M 20 40 Q 20 20 40 20 L calc(100% - 40px) 20 Q calc(100% - 20px) 20 calc(100% - 20px) 40 L calc(100% - 20px) calc(100% - 40px) Q calc(100% - 20px) calc(100% - 20px) calc(100% - 40px) calc(100% - 20px) L 40 calc(100% - 20px) Q 20 calc(100% - 20px) 20 calc(100% - 40px) Z');
+    -webkit-mask: path('M 20 40 Q 20 20 40 20 L calc(100% - 40px) 20 Q calc(100% - 20px) 20 calc(100% - 20px) 40 L calc(100% - 20px) calc(100% - 40px) Q calc(100% - 20px) calc(100% - 20px) calc(100% - 40px) calc(100% - 20px) L 40 calc(100% - 20px) Q 20 calc(100% - 20px) 20 calc(100% - 40px) Z');
+}
+
+body {
+    font-family: 'Pangolin', cursive;
+    background-color: white;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 30px 60px;
+    position: relative;
+    /* Add padding to account for the border mask */
+    padding: 20px;
+    /* Create a scrollable container that respects the border */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Hand-drawn border that outlines the viewport */
+body::before {
+    content: '';
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid #333;
+    border-radius: 40px;
+    pointer-events: none;
+    z-index: 999;  /* Keep border on very top */
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="noise" /><feDisplacementMap in="SourceGraphic" in2="noise" scale="4" /></filter></svg>#filter');
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 60px;
+    position: relative;
+}
+
+/* Remove the old container border */
+.container::before {
+    display: none;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin: 0 auto;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;  /* Content above the white mask */
+}
+
+/* Grid Items */
+.grid-item {
+    text-align: center;
+}
+
+.grid-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.grid-item a:hover {
+    transform: translateY(-5px);
+}
+
+/* Photo Squares */
+.photo-square {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease;
+}
+
+.grid-item:hover .photo-square {
+    border-color: #999;
+}
+
+/* Captions */
+.caption {
+    font-size: 18px;  /* Slightly increased for better readability with Pangolin */
+    color: #333;
+    margin-top: 8px;
+    font-family: 'Pangolin', cursive;  /* Explicitly set font for captions */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .container {
+        padding: 60px 40px;  /* Adjusted padding for smaller screens */
+    }
+    
+    .container::before {
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+} 
