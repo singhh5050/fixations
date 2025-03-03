@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbie | Fixations</title>
+    <title>Garages | Fixations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
@@ -11,23 +11,20 @@
     <style>
         .page-container {
             max-width: 1400px;
-            margin: 20px auto;  /* Adjusted to account for border spacing */
+            margin: 20px auto;
             padding: 30px 60px;
             position: relative;
-            /* Ensure content stays within the masked area */
-            width: calc(100% - 40px);  /* Account for left and right border spacing */
+            width: calc(100% - 40px);
             background-color: #fdfdfd;
         }
 
         body {
             min-height: 100vh;
-            padding: 20px;  /* Match the border spacing */
+            padding: 20px;
             box-sizing: border-box;
             position: relative;
-            /* Enable scrolling within the masked area */
             overflow-y: auto;
             overflow-x: hidden;
-            /* Remove flex properties that might interfere with scrolling */
             display: block;
             background-color: #fdfdfd;
         }
@@ -141,6 +138,11 @@
                 grid-column: auto;
             }
         }
+
+        /* Additional styles to ensure images appear without cropping */
+        .photo-square {
+            background-color: #fdfdfd;
+        }
     </style>
 </head>
 <body>
@@ -150,35 +152,34 @@
         <div class="three-column-layout">
             <!-- Left Column: Profile -->
             <div class="profile-section">
-                <div class="photo-square" style="background-image: url('../images/Slime.jpg');"></div>
+                <div class="photo-square" style="background-image: url('../images/Zoning.jpg');"></div>
                 <div class="profile-info">
-                    <h2>Kennesha Garg</h2>
-                    <p>Fixated on Barbie</p>
+                    <h2>Brady Moore, 18</h2>
+                    <p>Fixated on Garages</p>
                     <p style="margin-top: 20px; font-style: italic;">
-                        "I was OBSESSED with<br>
-                        Barbie dolls, but my<br>
-                        friend once told me that<br>
-                        Barbies come alive at<br>
-                        night. I was really<br>
-                        scared, like, what if<br>
-                        they burn my kitchen<br>
-                        down? So I put a Barbie<br>
-                        in the kitchen, left out<br>
-                        cookie ingredients, and<br>
-                        was like, 'If Barbies<br>
-                        come alive, they'll make<br>
-                        me a cookie.' The next<br>
-                        morning, no cookie.<br>
-                        Hypothesis proven:<br>
-                        Barbies do not come<br>
-                        alive at night."
+                        "When I was younger,<br>
+                        about eight or nine<br>
+                        years old, I just thought<br>
+                        garages were really<br>
+                        coooool. When we went to<br>
+                        Laughlin from California,<br>
+                        they had a PLETHORA of<br>
+                        garages—four single car<br>
+                        garages lined up, triple<br>
+                        car garages, trailer<br>
+                        garages. My grandma<br>
+                        would take me on walks,<br>
+                        and I was allowed to go<br>
+                        to each garage and touch<br>
+                        it with two fingers. My<br>
+                        little two-finger touch."
                     </p>
                 </div>
             </div>
 
             <!-- Middle Column: Main Content -->
             <div class="main-content">
-                <div class="photo-square large" style="background-image: url('../images/Kennesha.jpg');"></div>
+                <div class="photo-square large" style="background-image: url('../images/Brady.jpg');"></div>
             </div>
 
             <!-- Right Column: Chat Boxes -->

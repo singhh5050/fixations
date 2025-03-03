@@ -3,20 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Person Page</title>
+    <title>Murder Mysteries | Fixations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <style>
-        /* Additional styles specific to individual pages */
+        .page-container {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 30px 60px;
+            position: relative;
+            width: calc(100% - 40px);
+            background-color: #fdfdfd;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: block;
+            background-color: #fdfdfd;
+        }
+
         .back-link {
             display: inline-block;
             margin: 20px 0;
             color: #666;
             text-decoration: none;
             transition: color 0.2s ease;
-            font-family: 'Pangolin', cursive;
             font-size: 20px;
         }
         
@@ -24,35 +42,153 @@
             color: #333;
         }
 
-        .person-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: 'Pangolin', cursive;
+        .three-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .person-photo {
-            width: 300px;
-            height: 300px;
+        .profile-section {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fdfdfd;
+        }
+
+        /* Custom override for profile icon to prevent cropping */
+        .profile-section .photo-square {
+            width: 200px;
+            height: 200px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 20px;
+            /* Remove constraints that might cause cropping */
+            object-fit: contain;
+            box-sizing: content-box;
+            padding: 10px;
+            background-color: #fdfdfd;
+        }
+
+        .profile-info {
+            font-size: 18px;
+            line-height: 1.6;
+            width: 100%;
+        }
+
+        .main-content {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fdfdfd;
+        }
+
+        /* Custom override for main image */
+        .main-content .photo-square.large {
+            width: 60%; /* Narrower horizontally */
+            height: 80vh; /* Taller vertically */
+            max-height: 800px;
+            min-height: 600px;
+            aspect-ratio: 2/3; /* More vertical aspect ratio */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+            background-color: #fdfdfd;
+        }
+
+        .chat-section {
+            padding: 20px;
+            background-color: #fdfdfd;
+        }
+
+        .chat-boxes {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .chat-box {
+            padding: 15px;
             background-color: #f5f5f5;
             border: 1px solid #e0e0e0;
-            margin: 40px auto;
+            border-radius: 10px;
+            min-height: 80px;
         }
 
-        .person-name {
-            font-family: 'Pangolin', cursive;
-            font-size: 32px;
-            margin: 20px 0;
-            text-align: center;
+        @media (max-width: 1024px) {
+            .three-column-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+            .chat-section {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .three-column-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .chat-section {
+                grid-column: auto;
+            }
+        }
+
+        /* Additional styles to ensure images appear without cropping */
+        .photo-square {
+            background-color: #fdfdfd;
         }
     </style>
 </head>
 <body>
-    <div class="person-container">
+    <div class="page-container">
         <a href="../index.html" class="back-link">← Back to Grid</a>
-        <div class="person-photo"></div>
-        <h1 class="person-name">Person Name</h1>
-        <!-- Content will go here -->
+        
+        <div class="three-column-layout">
+            <!-- Left Column: Profile -->
+            <div class="profile-section">
+                <div class="photo-square" style="background-image: url('../images/Mystery.jpg');"></div>
+                <div class="profile-info">
+                    <h2>Nishka</h2>
+                    <p>Fixated on Murder Mysteries</p>
+                    <p style="margin-top: 20px; font-style: italic;">
+                        "Murder mysteries are<br>
+                        basically a game of wits<br>
+                        between me and the<br>
+                        author. You can't trust<br>
+                        them—they want to trick<br>
+                        you! A puzzle is DFS, a<br>
+                        murder mystery is BFS.<br>
+                        That's why I love Gone<br>
+                        Girl—it's not just the<br>
+                        mystery; it's also about<br>
+                        marriage, misogyny, and<br>
+                        more. Cool. Yeah."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Middle Column: Main Content -->
+            <div class="main-content">
+                <div class="photo-square large" style="background-image: url('../images/Nishka.jpg');"></div>
+            </div>
+
+            <!-- Right Column: Chat Boxes -->
+            <div class="chat-section">
+                <div class="chat-boxes">
+                    <div class="chat-box"></div>
+                    <div class="chat-box"></div>
+                    <div class="chat-box"></div>
+                    <div class="chat-box"></div>
+                    <div class="chat-box"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html> 
