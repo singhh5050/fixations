@@ -1,6 +1,8 @@
-# Minimalist People Grid
+# Fixations Website
 
-A clean, minimalist website featuring a grid of people with individual profile pages.
+A collection of people's fixations.
+
+Updated: March 3, 2023
 
 ## Structure
 
